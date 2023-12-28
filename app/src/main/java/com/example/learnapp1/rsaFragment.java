@@ -43,7 +43,7 @@ public class rsaFragment extends Fragment {
         View root = binding.getRoot();
         nextButton = binding.nextButton;
         previousButton = binding.previousButton;
-        numberOfClick=0;
+        numberOfClick=1;
 
         nextButton.setVisibility(View.VISIBLE);
         previousButton.setVisibility(View.INVISIBLE);
@@ -52,14 +52,21 @@ public class rsaFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 numberOfClick++;
-                binding.displayPic.setImageResource(R.drawable.rsa1);
                 log.d(TAG,"numberOfClick:" + numberOfClick );
-                if(numberOfClick==0) {
+                if(numberOfClick==1) {
                     nextButton.setVisibility(View.VISIBLE);
                     previousButton.setVisibility(View.INVISIBLE);
-                }else if (numberOfClick<10){
+                    binding.rsaHeaderText.setText(R.string.rsa_header_1);
+                    binding.rsaBodyText.setText(R.string.rsa1);
+                    binding.displayPic.setImageResource(R.drawable.rsa1);
+
+                }else if (numberOfClick==2){
                     nextButton.setVisibility(View.VISIBLE);
                     previousButton.setVisibility(View.VISIBLE);
+                    binding.rsaHeaderText.setText(R.string.rsa_header_2);
+                    binding.rsaBodyText.setText(R.string.rsa2);
+                    binding.displayPic.setImageResource(R.drawable.rsa1);
+
                 }else {
                     nextButton.setVisibility(View.INVISIBLE);
                     previousButton.setVisibility(View.VISIBLE);
@@ -72,19 +79,25 @@ public class rsaFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 numberOfClick--;
-                binding.displayPic.setImageResource(R.drawable.public_key_cryptography);
                 log.d(TAG,"numberOfClick:" + numberOfClick );
-                if(numberOfClick==0) {
+                if(numberOfClick==1) {
                     nextButton.setVisibility(View.VISIBLE);
                     previousButton.setVisibility(View.INVISIBLE);
-                }else if (numberOfClick<5){
+                    binding.rsaHeaderText.setText(R.string.rsa_header_1);
+                    binding.rsaBodyText.setText(R.string.rsa1);
+                    binding.displayPic.setImageResource(R.drawable.rsa1);
+
+                }else if (numberOfClick==2){
                     nextButton.setVisibility(View.VISIBLE);
                     previousButton.setVisibility(View.VISIBLE);
+                    binding.rsaHeaderText.setText(R.string.rsa_header_2);
+                    binding.rsaBodyText.setText(R.string.rsa2);
+                    binding.displayPic.setImageResource(R.drawable.rsa1);
+
                 }else {
                     nextButton.setVisibility(View.INVISIBLE);
                     previousButton.setVisibility(View.VISIBLE);
                 }
-
             }
         });
 
